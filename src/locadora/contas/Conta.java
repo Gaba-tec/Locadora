@@ -43,8 +43,6 @@ public class Conta {
 	{
 		return usuarios.containsKey(user);
 
-		
-		
 	}
 	
 	public Map<String,String> getUsuarios()
