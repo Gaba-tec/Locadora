@@ -2,11 +2,13 @@ package locadora.sistema;
 
 import java.util.Scanner;
 
+import locadora.contas.Conta;
 import locadora.login.Login;
 
 public class Sistema {
 	
-	private Login login = new Login();
+	private Scanner scanner = new Scanner(System.in);
+	private Conta conta;
 	
 	public void telaInicial() 
 	{
@@ -20,16 +22,14 @@ public class Sistema {
 		
 		System.out.println("Escolha uma opção para proseguir");
 		
-		Scanner scanner = new Scanner(System.in); 
-		
 		System.out.print("Opção: ");
-		int opcao = scanner.nextInt();
-		
+		String opcao = scanner.next();
+		//scanner.nextLine();
+		telaInicialOpcoes(opcao);
 	}
 	
 	public void telaSistemaUser()
 	{
-		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("--------------------------");
 		System.out.println("Login efetuado com sucesso");
@@ -47,18 +47,36 @@ public class Sistema {
 		String opcao = scanner.next();
 	}
 	
-	private void telaInicialOpcoes(int opcao)
+	public void telaInicialOpcoes(String opcao)
 	{
-		if(opcao == 1)
+		if(opcao.equals("1"))
 		{
 			telaLogin();
 		}
-		
+		else if(opcao.equals("2"))
+		{
+			conta = new Conta();
+			this.conta.cadastraUsuario();
+		}
+		else if(opcao.equals("3"))
+		{
+			
+		}
+		else if(opcao.equals("4"))
+		{
+			telaInicial();
+		}
+		else 
+		{
+			System.out.println("Não é uma opção valida, por favor tente novamente");
+			telaInicial();
+		}
+			
 	}
 	
-	private void telaLogin()
+	public void telaLogin()
 	{
-		Scanner scanner = new Scanner(System.in);
+		Login login = new Login();
 		System.out.println("--TELA DE LOGIN--");
 		System.out.print("User: ");
 		String user = scanner.nextLine();
