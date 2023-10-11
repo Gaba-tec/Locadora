@@ -24,7 +24,7 @@ public class Sistema {
 		
 		System.out.print("Opção: ");
 		String opcao = scanner.next();
-		//scanner.nextLine();
+		scanner.nextLine();
 		telaInicialOpcoes(opcao);
 	}
 	

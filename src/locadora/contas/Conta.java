@@ -29,7 +29,7 @@ public class Conta {
 			String senha = scanner.nextLine();
 			usuarios.put(user, senha);
 			System.out.println("Usuario Criado!!");
-			sistema.telaSistemaUser();
+			sistema.telaInicial();
 		}
 		else
 		{
